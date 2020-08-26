@@ -1,14 +1,11 @@
 import React from "react";
-// import { Button, Navbar } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css";
-import { NavDropdown,Nav,Navbar } from "react-bootstrap";
-
+import { NavDropdown, Nav, Navbar } from "react-bootstrap";
 
 const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Brand href="#home">LearnWithFun</Navbar.Brand>
+      {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="#features">Features</Nav.Link>
@@ -31,7 +28,7 @@ const NavBar = () => {
             Dank memes
           </Nav.Link>
         </Nav>
-      </Navbar.Collapse>
+      </Navbar.Collapse> */}
     </Navbar>
   );
 };
