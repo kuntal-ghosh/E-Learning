@@ -8,15 +8,24 @@ import NavBar from "./Components/Navbar";
 import Courses from "./Components/Courses/Courses";
 import Cart from "./Components/Cart/Cart";
 import context from "react-bootstrap/esm/AccordionContext";
+import courses from "./FakeData/index";
 
 function App() {
-  // let danger = "App_danger";
+  const [allCourses, setallCourses] = useState(courses);
   const [cart, setCart] = useState([]);
-  function handleEnroll(course) {
-    // console.log(course);
-    const newCart = [...cart, course];
+  function handleEnroll(newCourse) {
+    const newCart = [...cart, newCourse];
     setCart(newCart);
+    const newAllCourses = [];
+    // newAllCourses.filter((c) => c.id === newCourse.id);
+    allCourses.forEach((element) => {
+      if (element.id !== newCourse.id) {
+        newAllCourses.push(element);
+      }
+    });
+    setallCourses(newAllCourses);
   }
+  console.log(`new courses ${allCourses}`);
   return (
     <Fragment>
       <NavBar />
@@ -28,7 +37,10 @@ function App() {
         <Button type="btn-danger">jl</Button> */}
         <div className={cx(styles.App_sidenav)}></div>
         <div className={cx(styles.App_courses)}>
-          <Courses handleEnroll={handleEnroll}></Courses>
+          <Courses
+            allCourses={allCourses}
+            handleEnroll={handleEnroll}
+          ></Courses>
         </div>
         <div className={cx(styles.App_cart)}>
           <Cart cart={cart}></Cart>
