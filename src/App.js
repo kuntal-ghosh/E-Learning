@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import styles from "./App.module.scss";
 import cx from "classnames";
@@ -11,6 +11,12 @@ import context from "react-bootstrap/esm/AccordionContext";
 
 function App() {
   // let danger = "App_danger";
+  const [cart, setCart] = useState([]);
+  function handleEnroll(course) {
+    // console.log(course);
+    const newCart = [...cart, course];
+    setCart(newCart);
+  }
   return (
     <Fragment>
       <NavBar />
@@ -20,14 +26,12 @@ function App() {
           bootstrap button
         </button>
         <Button type="btn-danger">jl</Button> */}
-        <div className={cx(styles.App_sidenav)}>
-
-        </div>
+        <div className={cx(styles.App_sidenav)}></div>
         <div className={cx(styles.App_courses)}>
-          <Courses></Courses>
+          <Courses handleEnroll={handleEnroll}></Courses>
         </div>
         <div className={cx(styles.App_cart)}>
-          <Cart></Cart>
+          <Cart cart={cart}></Cart>
         </div>
       </div>
     </Fragment>
