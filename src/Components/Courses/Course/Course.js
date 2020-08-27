@@ -1,10 +1,20 @@
 import React from "react";
+import { Card, Button } from "react-bootstrap";
 
 const Course = (props) => {
-  const { name, price, author } = props.course;
+  const { name, price, author, img } = props.course;
+  console.log(props.course);
   return (
     <div>
-      <div>this is a java course</div>
+      <Card style={{ width: "18rem" }} className="m-2">
+        <Card.Img variant="top" src={img} />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>by {author}</Card.Text>
+          <Card.Text>${price}</Card.Text>
+          <Button variant="primary">Enroll Now</Button>
+        </Card.Body>
+      </Card>
     </div>
   );
 };

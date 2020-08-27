@@ -1,7 +1,21 @@
 .App {
-  text-align: center;
-
-  &_danger {
-    color: red;
+  &_container {
+    display: flex;
   }
+
+  &_sidenav {
+    flex: 1;
+  }
+
+  &_courses {
+    flex: 2;
+  }
+
+  &_cart {
+    flex: 1;
+  }
+
+  // &_danger {
+  //   color: red;
+  // }
 }
